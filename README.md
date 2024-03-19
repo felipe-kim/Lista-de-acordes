@@ -1,7 +1,5 @@
 # Lista-de-acordes
 
-# Lista de Músicas
-
 Digite o título da música seguido pela letra:
 
 - **Título da Música 1:**
