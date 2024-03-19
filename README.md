@@ -106,8 +106,8 @@ fetchFiles();
 
 <script>
 // Configurações
-const username = 'seu_nome_de_usuário';
-const repository = 'seu_repositório';
+const username = 'felipe-kim';
+const repository = 'Lista-de-acordes';
 
 // URL base do GitHub para visualização do arquivo
 const githubUrl = `https://github.com/${username}/${repository}/blob/main/`;
