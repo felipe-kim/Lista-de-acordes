@@ -33,3 +33,57 @@ function openFile() {
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Arquivos do Repositório</title>
+</head>
+<body>
+
+<h1>Lista de Arquivos do Repositório</h1>
+
+<ul id="fileList">
+  <!-- Lista de arquivos será inserida aqui -->
+</ul>
+
+<script>
+// Configurações
+const username = 'felipe-kim';
+const repository = 'Lista-de-acordes';
+
+// URL da API do GitHub para obter a lista de arquivos
+const apiUrl = `https://api.github.com/repos/${username}/${repository}/contents`;
+
+// Função para buscar a lista de arquivos
+async function fetchFiles() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    
+    // Limpar a lista de arquivos
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = '';
+    
+    // Adicionar cada arquivo à lista
+    data.forEach(file => {
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.textContent = file.name;
+      link.href = file.html_url;
+      listItem.appendChild(link);
+      fileList.appendChild(listItem);
+    });
+  } catch (error) {
+    console.error('Erro ao buscar a lista de arquivos:', error);
+  }
+}
+
+// Chamar a função para buscar a lista de arquivos quando a página carregar
+fetchFiles();
+</script>
+
+</body>
+</html>
